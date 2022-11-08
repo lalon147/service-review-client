@@ -1,4 +1,5 @@
 import {createBrowserRouter} from "react-router-dom";
+import AddAService from "../Component/AddAService/AddAService";
 import Login from "../Component/Authentication/Login";
 import Register from "../Component/Authentication/Register";
 import Home from "../Component/Home/Home";
@@ -20,7 +21,10 @@ export const router=createBrowserRouter([
             },{
                 path:"/register",
                 element:<Register></Register>
-            },
+            },{
+                path:"/add-a-service",
+                element:<AddAService></AddAService>
+            }
            
         ]
     }

@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from "../../assets/login.svg"
 import { AuthContext } from '../../context/UserContext/UserContext';
+import { getJwtToken } from '../../utils/utils';
 
 const Register = () => {
     const {createUser,updateUserInfo,signInWithGoogle}=useContext(AuthContext);
@@ -16,20 +17,25 @@ const Register = () => {
         const photoUrl=form.photo.value;
         const name=form.name.value;
         const password=form.password.value;
-       console.log(email,password,name,photoUrl)
-       createUser(email,password).then(result=>{
+       createUser(email,password)
+       .then(result=>{
         const user=result.user;
         console.log(user);
-        updateUserInfo(photoUrl,name).then(()=>toast.success("PROFILE UPDATED"))
-        toast.success(`${name} SIGNED IN SUCCESSFULLY`)})
-        nav(from,{replace:true})
+        getJwtToken(user);
+        updateUserInfo(photoUrl,name)
+          .then(()=>
+               toast.success("PROFILE UPDATED")).catch(error=>console.log(error))
+               nav(from,{replace:true})
+               toast.success(`${name} SIGNED IN SUCCESSFULLY`)}).catch(error=>console.log(error))
+        
        }
        const handleGoogleSignIn=()=>{
         signInWithGoogle().then(result=>{
         const user=result.user;
-        console.log(user)
+        console.log(user);
+        getJwtToken(user);
         nav(from,{replace:true})
-        })
+        }).catch(error=>console.log(error))
 
        }
 
