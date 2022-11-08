@@ -1,6 +1,6 @@
 import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
-//
+//react-photo-viwe feature added
 const Card = ({service}) => {
     return (
 
