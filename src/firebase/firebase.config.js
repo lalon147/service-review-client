@@ -5,13 +5,15 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCAhEW4RmwfwoNGO9uLwlO-vWY0zTpVYWg",
-  authDomain: "movie-mania-e52e8.firebaseapp.com",
-  projectId: "movie-mania-e52e8",
-  storageBucket: "movie-mania-e52e8.appspot.com",
-  messagingSenderId: "788097382371",
-  appId: "1:788097382371:web:49d9edd7bba000a250d2d6"
+  apiKey:process.env.REACT_APP_apiKey,
+  authDomain:process.env.REACT_APP_authDomain ,
+  projectId:process.env.REACT_APP_projectId,
+  storageBucket:process.env.REACT_APP_storageBucket,
+  messagingSenderId:process.env.REACT_APP_messagingSenderId,
+  appId:process.env.REACT_APP_appId,
 };
+
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
