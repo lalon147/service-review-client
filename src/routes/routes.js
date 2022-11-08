@@ -4,6 +4,7 @@ import Login from "../Component/Authentication/Login";
 import Register from "../Component/Authentication/Register";
 import Home from "../Component/Home/Home";
 import Main from "../layouts/Main";
+import PrivateRoute from "./PrivateRoute";
 
 export const router=createBrowserRouter([
     {
@@ -23,7 +24,7 @@ export const router=createBrowserRouter([
                 element:<Register></Register>
             },{
                 path:"/add-a-service",
-                element:<AddAService></AddAService>
+                element:<PrivateRoute><AddAService></AddAService></PrivateRoute>
             }
            
         ]
