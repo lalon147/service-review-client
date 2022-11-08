@@ -7,7 +7,7 @@ const Header = () => {
     const {user,logOut} =useContext(AuthContext)
     const handleLogOut=()=>{
       logOut().then(()=>{
-        toast.success(`${user.name} SIGNED OUT SUCCESSFULLY`)
+        toast.success(`SIGNED OUT SUCCESSFULLY`)
       })
     }
     return (
@@ -20,6 +20,7 @@ const Header = () => {
     <h1 className='text-3xl font-bold text-white'>RISAN's  CEREMONY</h1>    
     <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
       <Link to="/" className="mr-5 hover:text-white">HOME</Link>
+      <Link to="/blogs" className="mr-5 hover:text-white">BLOGS</Link>
       
        
       

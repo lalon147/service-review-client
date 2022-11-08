@@ -1,10 +1,10 @@
 
 
 export const getJwtToken=(user)=>{
-    fetch("https://service-review-server-lalon147.vercel.app/jwt",{
+  return   fetch("https://service-review-server-gamma.vercel.app/jwt",{
             method:"POST",
             headers:{
-                "Content-Type":"applicatio/json"
+                "Content-Type":"application/json"
             },
             body:JSON.stringify(user.email)
         }).then(res=>res.json()).then(data=>{

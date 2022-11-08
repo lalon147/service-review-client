@@ -11,7 +11,7 @@ const PrivateRoute = ({children}) => {
     const {user,loading}=useContext(AuthContext);
 
     if(loading){
-        return  
+        return  <div className='my-10 w-20 h-20 flex items-center justify-center rounded-full bg-blue-800 mx-auto animate-ping'>LOADING</div>
     }
     if(!user){
         return <Navigate to="/login" state={{from: location}} replace></Navigate>
