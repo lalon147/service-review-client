@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext/UserContext';
+import useTitle from '../../hooks/useTitle';
 
 const MyReview = () => {
+  useTitle("MY REVIEWS")
     
   
    

@@ -1,8 +1,10 @@
 import React from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const AddAService = () => {
+     useTitle("ADD A SERVICE")
     const navigate=useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault();

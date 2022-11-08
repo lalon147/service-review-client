@@ -5,8 +5,10 @@ import login from "../../assets/login.svg"
 import { Link, useNavigate,useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext/UserContext';
 import { getJwtToken } from '../../utils/utils';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
+    useTitle("LOGIN")
     const {signInWithGoogle,signIn}=useContext(AuthContext);
     const location=useLocation();
     const nav=useNavigate();

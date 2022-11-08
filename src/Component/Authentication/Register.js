@@ -3,9 +3,11 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from "../../assets/login.svg"
 import { AuthContext } from '../../context/UserContext/UserContext';
+import useTitle from '../../hooks/useTitle';
 import { getJwtToken } from '../../utils/utils';
 
 const Register = () => {
+  useTitle("REGISTER")
     const {createUser,updateUserInfo,signInWithGoogle}=useContext(AuthContext);
     const location=useLocation();
     const nav=useNavigate();
