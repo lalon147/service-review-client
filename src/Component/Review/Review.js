@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext/UserContext';
 import useTitle from '../../hooks/useTitle';
 
 const Review = () => {
+  const navigate=useNavigate()
    useTitle("REVIEWS BY OTHER")
    const [reviews,setReviews]=useState([])
     const {user}=useContext(AuthContext);
@@ -37,7 +39,13 @@ const Review = () => {
           authorization:`Bearer ${localStorage.getItem("token")}`
         },
         body:JSON.stringify(review)
-      }).then(res=>res.json()).then(data=>console.log(data)).catch(error=>console.log(data))
+      }).then(res=>res.json()).then(data=>{
+        console.log(data);
+        toast.success("REVIEW ADDED SUCCESSFULLY")
+        e.target.reset();
+        navigate("/my-reviews")
+
+      }).catch(error=>console.log(data))
     }
     return (
         <div>
@@ -56,7 +64,7 @@ const Review = () => {
                  
                 EMAIL: <input  className='bg-slate-200 p-2  ' placeholder='YOUR EMAIL' type="email" name="email" defaultValue={`${user.email}`}></input>
                 REVIEW:<textarea required className='bg-slate-200 p-2 ' placeholder='YOUR REVIEW' type="text" name="message"></textarea>
-                <button type="submit" className='bg-blue-600 p-2'>SUBMIT</button>
+                <button type="submit" className='bg-blue-600 p-2 hover:bg-blue-800'>SUBMIT</button>
                </form>
                  </>
                  

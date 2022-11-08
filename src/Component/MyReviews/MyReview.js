@@ -5,10 +5,11 @@ import { AuthContext } from '../../context/UserContext/UserContext';
 import useTitle from '../../hooks/useTitle';
 
 const MyReview = () => {
-  useTitle("MY REVIEWS")
-    
-  
-   
+  const {logOut}=useContext(AuthContext)
+   if(!localStorage.getItem("token")){
+        logOut().then(()=>toast.error("USER NOT FOUND"))
+   }
+  useTitle("MY REVIEWS")  
     const [myReviews,setMyreviews]=useState([])
     const {user}=useContext(AuthContext);
     const email=user?.email;
@@ -83,7 +84,7 @@ const MyReview = () => {
                                      <img src={re.image} className="w-12 h-12 rounded-full mr-2" alt=""/>
                                      <p>{re.email}</p>
                                </div>
-                              <form onSubmit={(e)=>handleUpdate(e,re._id)}> <input id="message" className='text-xl' defaultValue={re.message.toUpperCase()}></input>
+                              <form onSubmit={(e)=>handleUpdate(e,re._id)}> <input id="message" className='text-xl w-full' defaultValue={re.message.toUpperCase()}></input>
                               <button type="submit" className='p-2 bg-slate-400 rounded-md hover:bg-slate-600 m-2'>UPDTAE</button>
                               </form>
 
