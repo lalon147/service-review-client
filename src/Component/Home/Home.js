@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
 import Card from './Card';
+import Contact from './Contact';
+import Statistics from './Statistics';
 
 const Home = () => {
   useTitle("HOME")
@@ -24,7 +27,7 @@ const Home = () => {
       </h1>
       <p className="mb-8 leading-relaxed"> I AM RISAN REHMAN .I PROVIDE WITH MANY SERVICE LIKE WEDDING MEALS AND MOSTLY FOOD AND BEVERAGE BUT A LITTLE BIT OF DECORATION .</p>
       <div className="flex justify-center">
-        <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">BLOGS</button>
+        <Link to="/blogs"><button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">BLOGS</button></Link>
 
       </div>
     </div>
@@ -35,15 +38,19 @@ const Home = () => {
 </section>
   <section className='w-11/12 mx-auto my-10'>
      <h1 className='text-3xl text-center font-bold'>SERVICES</h1>
-      <div className='grid grid-cols-1 md:grid-cols-2 my-10 bg-slate-100 rounded py-5 '>
+      <div className='grid grid-cols-1  my-10 bg-slate-100 rounded py-5 '>
              {
               services.map((service)=><Card key={service._id} service={service}></Card>)
              }
       </div>
       
-        <button onClick={()=>{setSize("all")}} className=' w-32 bg-blue-400 p-2 text-2xl rounded font-bold hover:bg-blue-600'>SEE ALL</button> 
+        <div className='flex items-center justify-center'><button onClick={()=>{setSize("all")}} className=' w-32 bg-blue-400 p-2 text-2xl rounded font-bold hover:bg-blue-600 '>SEE ALL</button> </div>
       
   </section>
+
+      <Contact></Contact>
+      <Statistics></Statistics>
+    
         </div>
     );
 };

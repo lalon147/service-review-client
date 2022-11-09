@@ -14,7 +14,7 @@ const MyReview = () => {
     const {user}=useContext(AuthContext);
     const email=user?.email;
      
-     useEffect(()=>{
+  useEffect(()=>{
          
    fetch(`http://localhost:5000/my-reviews?email=${email}`,{
     headers:{
@@ -22,14 +22,12 @@ const MyReview = () => {
     }
    })
      .then(res=>res.json()).then(data=>{
-        console.log(data)
-        setMyreviews(data);
-      
-        
-    })
-        
-
-     },[email])
+        if(data.message==="UNAUTHORIZED ACCESS"){
+          return logOut().then(()=>toast.error("TOKEN EXPIRED"))
+        }
+        setMyreviews(data);        
+    }).catch(error=>console.log(error))
+     },[email,logOut])
      
      const handleDelete=(id)=>{
            fetch(`http://localhost:5000/my-reviews/${id}`,{
@@ -84,6 +82,7 @@ const MyReview = () => {
                                      <img src={re.image} className="w-12 h-12 rounded-full mr-2" alt=""/>
                                      <p>{re.email}</p>
                                </div>
+                               <p className='mx-5 my-1'>last modified:{re.added}</p>
                               <form onSubmit={(e)=>handleUpdate(e,re._id)}> <input id="message" className='text-xl w-full' defaultValue={re.message.toUpperCase()}></input>
                               <button type="submit" className='p-2 bg-slate-400 rounded-md hover:bg-slate-600 m-2'>UPDTAE</button>
                               </form>

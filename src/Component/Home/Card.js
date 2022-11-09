@@ -10,7 +10,7 @@ const Card = ({service}) => {
             <div className="sm:w-1/2 mb-10 px-4">
         <div className="rounded-lg h-64 overflow-hidden">
         <PhotoView  src={service.image}>
-            <img src={service.image} alt="" />
+            <img className='w-full' src={service.image} alt="" />
           </PhotoView>
         </div>
         <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">{service.name}</h2>

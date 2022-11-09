@@ -8,12 +8,12 @@ const AddAService = () => {
     const navigate=useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault();
-        const name=e.target.title.value;
+        const name=e.target.name.value;
         const image=e.target.photo.value;
         const price=e.target.price.value;
         const desc=e.target.desc.value;
         const service={name,image,price,desc};
-     //    console.log(movie)
+        console.log(service)
      
         fetch("https://service-review-server-lalon147.vercel.app/add-a-service",{
          method:"POST",

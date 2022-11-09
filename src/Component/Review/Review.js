@@ -80,6 +80,7 @@ const Review = () => {
                           <div className='flex items-center p-2 '>
                           <img src={re.image} className="w-12 h-12 rounded-full mr-2" alt=""/>
                            <p>{re.email}</p>
+                           <p className='mx-5'>last modified:{re.added}</p>
                           </div>
                           <p className='ml-16 bg-slate-100 p-1'>{re.message}</p>
                   </div>
