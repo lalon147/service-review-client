@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext/UserContext';
 import useTitle from '../../hooks/useTitle';
@@ -49,12 +50,16 @@ const Review = () => {
     }
     return (
         <div>
+          <PhotoProvider>
              <div className='my-10 w-1/2 mx-auto'>
                      <p className='font-bold  text-2xl'>NAME:{data.name}</p>
-                     <img className='w-64  ' src={data.image} alt=""/>
+                     <PhotoView  src={data.image}>
+                     <img className='w-full rounded-full  ' src={data.image} alt="" title='click here to see in full screen'/>
+                     </PhotoView>
                      <p className='text-orange-500 font-bold'>PRICE:{data.price}</p>
                      <p>{data.desc}</p>
              </div>
+             </PhotoProvider>
           
                {
                  user?.email ?  

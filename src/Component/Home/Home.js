@@ -44,7 +44,7 @@ const Home = () => {
              }
       </div>
       
-        <div className='flex items-center justify-center'><button onClick={()=>{setSize("all")}} className=' w-32 bg-blue-400 p-2 text-2xl rounded font-bold hover:bg-blue-600 '>SEE ALL</button> </div>
+      <Link to="/services"><div className='flex items-center justify-center'><button onClick={()=>{setSize("all")}} className=' w-32 bg-blue-400 p-2 text-2xl rounded font-bold hover:bg-blue-600 '>SEE ALL</button></div></Link>
       
   </section>
 

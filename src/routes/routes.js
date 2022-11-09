@@ -6,6 +6,7 @@ import Blog from "../Component/Blog/Blog";
 import Home from "../Component/Home/Home";
 import MyReview from "../Component/MyReviews/MyReview";
 import Review from "../Component/Review/Review";
+import Services from "../Component/Services/Services";
 
 import Main from "../layouts/Main";
 import PrivateRoute from "./PrivateRoute";
@@ -39,7 +40,10 @@ export const router=createBrowserRouter([
             },{
                 path:"/blogs",
                 element:<Blog></Blog>
-            },
+            },{
+                path:"/services",
+                element:<Services></Services>
+            }
             
            
         ]
