@@ -2,7 +2,7 @@
 
 export const getJwtToken=(loggedUser)=>{
      const user={email:loggedUser.email}
-  return   fetch("http://localhost:5000/jwt",{
+  return   fetch("https://service-review-server-lalon147.vercel.app/jwt",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

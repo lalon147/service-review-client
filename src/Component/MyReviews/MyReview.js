@@ -16,7 +16,7 @@ const MyReview = () => {
      
   useEffect(()=>{
          
-   fetch(`http://localhost:5000/my-reviews?email=${email}`,{
+   fetch(`https://service-review-server-lalon147.vercel.app/my-reviews?email=${email}`,{
     headers:{
         authorization:`Bearer ${localStorage.getItem("token")}`
     }
@@ -30,7 +30,7 @@ const MyReview = () => {
      },[email,logOut])
      
      const handleDelete=(id)=>{
-           fetch(`http://localhost:5000/my-reviews/${id}`,{
+           fetch(`https://service-review-server-lalon147.vercel.app/my-reviews/${id}`,{
             method:"DELETE",
             headers:{
                 "content-type":"application/json"
@@ -59,7 +59,7 @@ const MyReview = () => {
         message:reviewMessage
       }
     
-      fetch(`http://localhost:5000/update-review/${id}`,{
+      fetch(`https://service-review-server-lalon147.vercel.app/update-review/${id}`,{
         method:"PUT",
         headers:{
             "Content-Type":"application/json"

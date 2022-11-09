@@ -35,7 +35,7 @@ const AddAService = () => {
                         <h1 className='text-4xl text-center '>ADD A SERVICE HERE</h1>
                         <input required type="text" name="name" className=' bg-slate-300  p-2 rounded ' placeholder='NAME OF THE SERVICE'></input>   
                         <input required type="text" name="photo" className='bg-slate-300   p-2 rounded ' placeholder='POSTER IMAGE'></input> 
-                        <input required type="number" name="price" className=' bg-slate-300  p-2 rounded ' placeholder='PRICE OF SERVICE'></input> 
+                        <input required type="text" name="price" className=' bg-slate-300  p-2 rounded ' placeholder='PRICE OF SERVICE'></input> 
                         <textarea required  type="text" name="desc" className='  bg-slate-300 p-2 rounded ' placeholder='DESCRIPTION'></textarea> 
                         <button className='bg-slate-400 hover:bg-slate-700 p-2 rounded'  type="submit">Submit</button>  
              </form>

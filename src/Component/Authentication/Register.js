@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from "../../assets/login.svg"
@@ -7,6 +7,7 @@ import useTitle from '../../hooks/useTitle';
 import { getJwtToken } from '../../utils/utils';
 
 const Register = () => {
+  
   useTitle("REGISTER")
     const {createUser,updateUserInfo,signInWithGoogle}=useContext(AuthContext);
     const location=useLocation();
@@ -26,9 +27,9 @@ const Register = () => {
         getJwtToken(user);
         updateUserInfo(photoUrl,name)
           .then(()=>
-               toast.success("PROFILE UPDATED")).catch(error=>console.log(error))
+               toast.success("PROFILE UPDATED")).catch(error=>toast.error("CANT FIND USER WITH THIS CREDENTIALS"))
                nav(from,{replace:true})
-               toast.success(`${name} SIGNED IN SUCCESSFULLY`)}).catch(error=>console.log(error))
+               toast.success(`${name} SIGNED IN SUCCESSFULLY`)}).catch(error=>toast.error("CHECK YOUR EMAIL AND PASSWORD"))
         
        }
        const handleGoogleSignIn=()=>{

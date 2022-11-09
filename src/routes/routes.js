@@ -32,7 +32,7 @@ export const router=createBrowserRouter([
             },{
                 path:"/services/:id",
                 element:<Review></Review>,
-                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+                loader:({params})=>fetch(`https://service-review-server-lalon147.vercel.app/services/${params.id}`)
             },{
                 path:"/my-reviews",
                 element:<PrivateRoute><MyReview></MyReview></PrivateRoute>

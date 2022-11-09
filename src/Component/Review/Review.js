@@ -12,7 +12,7 @@ const Review = () => {
     const data=useLoaderData();console.log(data)
      useEffect(()=>{
           
-       fetch(`http://localhost:5000/review/${data._id}`,{
+       fetch(`https://service-review-server-lalon147.vercel.app/review/${data._id}`,{
         headers:{
           authorization:`Bearer ${localStorage.getItem("token")}`
       }
@@ -32,7 +32,7 @@ const Review = () => {
       const image=user.photoURL;
       const review={email,message,serviceId,image};
 
-      fetch("http://localhost:5000/add-a-review",{
+      fetch("https://service-review-server-lalon147.vercel.app/add-a-review",{
         method:"POST",
         headers:{
           "content-type":"application/json",

@@ -9,3 +9,6 @@
 
 
 #####LIVE SITE:https://the-urban-luxary.web.app/
+
+##CLONE THE PROJECT THEN IN THE TERMINAL WRITE 
+NPM INSTALL 
