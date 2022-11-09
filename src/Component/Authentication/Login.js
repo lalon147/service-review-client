@@ -1,7 +1,7 @@
 
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import login from "../../assets/login.svg"
+import login from "../../assets/login.webp"
 import { Link, useNavigate,useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext/UserContext';
 import { getJwtToken } from '../../utils/utils';
